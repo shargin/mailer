@@ -1,5 +1,5 @@
 {
-    "name": "symfony/mailer",
+    "name": "shargin/mailer",
     "type": "library",
     "description": "Symfony Mailer Component",
     "keywords": [],
