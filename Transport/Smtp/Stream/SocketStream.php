@@ -132,8 +132,8 @@ final class SocketStream extends AbstractStream
         }
         // do it unconditionnally as it will be used by STARTTLS as well if supported
         $options['ssl']['crypto_method'] = $options['ssl']['crypto_method'] ?? STREAM_CRYPTO_METHOD_TLS_CLIENT | STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT | STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT;
+        $options['ssl']['verify_peer_name'] = $_ENV['verify_peer_name'] ?? true;
         $streamContext = stream_context_create($options);
-
         $timeout = $this->getTimeout();
         set_error_handler(function ($type, $msg) {
             throw new TransportException(sprintf('Connection could not be established with host "%s": %s.', $this->url, $msg));
