@@ -103,6 +103,7 @@ class EsmtpTransport extends SmtpTransport
         }
 
         $capabilities = $this->getCapabilities($response);
+        unset($capabilities["STARTTLS"]);
 
         /** @var SocketStream $stream */
         $stream = $this->getStream();
